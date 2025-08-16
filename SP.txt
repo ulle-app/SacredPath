@@ -1,0 +1,315 @@
+Got it — I’ll update the PRD to:
+	•	Add UI landing page imagery suggestions under UI/UX Requirements.
+	•	Include an AI-driven weather advisability feature in the Core Features and Optional AI Features sections.
+
+Here’s your updated PRD:
+
+Product Requirements Document (PRD)
+
+App Name (Working Title): SacredPath India
+Platform: iOS (SwiftUI)
+Version: 1.0
+Date: 16 August 2025
+Author: Prajñā saḍaka
+
+1. Executive Summary
+
+SacredPath India is a mobile iOS application designed to help users plan budget-conscious pilgrimages to holy sites across India. Users enter their budget, preferred destinations (or let the app suggest), travel dates, and other preferences. The app then:
+	•	Calculates the shortest travel route using Google Maps API.
+	•	Generates a complete itinerary (travel, accommodation, meals) tailored to their budget.
+	•	Provides cost breakdowns and booking links.
+	•	Suggests additional spiritual sites near the route to enhance the trip.
+	•	Analyzes real-time weather and travel conditions to advise whether it’s a good time to go.
+
+2. Goals & Objectives
+	•	Primary Goal: Simplify pilgrimage planning in India by integrating budget planning, route optimization, and real-time advisories.
+	•	Objectives:
+	•	Offer affordable travel itineraries within a specified budget.
+	•	Integrate with Google Maps to display shortest routes.
+	•	Provide dynamic recommendations for hotels, travel modes, and food options.
+	•	Curate a list of holy places with verified details, images, and historical/spiritual significance.
+	•	Warn or encourage travel plans based on live weather and seasonal conditions.
+
+3. Target Audience
+	•	Pilgrims of all age groups planning trips to temples, mosques, gurudwaras, monasteries.
+	•	Domestic and NRI travelers looking for affordable and optimized travel plans.
+	•	Tour operators and travel planners who can use it as a tool.
+
+4. Key Features & Requirements
+
+4.1 User Inputs
+	•	Budget (total, or per day).
+	•	Travel start location (GPS or manual entry).
+	•	Destination(s): user-chosen or AI-suggested.
+	•	Number of travelers (adults/children).
+	•	Preferred travel dates.
+	•	Travel mode preference (train, bus, car, flight).
+	•	Accommodation type (budget hotel, dharamshala, mid-range).
+
+4.2 Core Features
+
+A. 
+Route Optimization
+	•	API: Google Maps Directions API.
+	•	Functionality:
+	•	Generate the shortest time or shortest distance route between multiple destinations.
+	•	Allow user to reorder destinations and see updated route instantly.
+
+B. 
+Itinerary Generation
+	•	Break trip into day-by-day plans:
+	•	Travel (mode, departure/arrival times, fares).
+	•	Accommodation (name, cost, booking link).
+	•	Meals (local food spots or included options).
+	•	Sightseeing & darshan timings.
+	•	Auto-balance budget across travel, hotel, and food.
+
+C. 
+Budget Breakdown
+	•	Pie chart of expenses: Travel / Stay / Food.
+	•	Cost estimates in INR.
+	•	Option to “upgrade” or “downgrade” accommodations to adjust budget.
+
+D. 
+AI-Driven Travel Advisability Based on Weather
+	•	Uses live weather data (OpenWeatherMap API or IMD API).
+	•	AI model evaluates:
+	•	Monsoon flooding risks.
+	•	Snow/landslide warnings.
+	•	Heatwave advisories.
+	•	Festival crowd surges.
+	•	Output:
+	•	“Recommended to go” (green)
+	•	“Proceed with caution” (yellow)
+	•	“Not advisable” (red)
+	•	Suggest alternative dates or destinations in unsafe conditions.
+
+E. 
+Booking Integrations
+	•	Deep links to IRCTC (trains), RedBus, MakeMyTrip, OYO, Zomato/Swiggy.
+
+F. 
+Destination Profiles
+	•	Each holy site’s:
+	•	Image gallery.
+	•	Spiritual/historical info.
+	•	Best time to visit.
+	•	Entry fees (if any).
+
+G. 
+Offline Mode
+	•	Save itinerary and maps offline for remote areas with poor connectivity.
+
+4.3 Optional Features (Expanded)
+
+1. AI-Powered Suggestion Engine
+	•	Suggest nearby lesser-known holy sites, eateries, or events.
+	•	Recommend optimal visiting hours based on crowds, festivals, and weather.
+	•	Uses curated pilgrimage data + Google Places reviews.
+
+2. Group Trip Coordination
+	•	Share itineraries with others, edit collaboratively.
+	•	Assign expenses to individuals.
+	•	Real-time sync via Firebase.
+
+3. Language Localization (All Indian Languages)
+	•	Full support for all 22 official Indian languages under the Eighth Schedule.
+	•	Auto-detect language from device settings.
+	•	Spiritual glossary translations + audio guides.
+
+4. Expense Tracking During Trip
+	•	Log actual spending on travel, food, donations.
+	•	Compare against planned budget.
+
+5. Push Notifications & Smart Alerts
+	•	Alerts for darshan timings, weather changes, or transport updates.
+	•	Geofencing triggers for location-based alerts.
+
+6. Festival & Special Event Integration
+	•	Show upcoming spiritual events near route.
+	•	Option to extend trip to attend.
+
+7. Personalized Spiritual Content
+	•	Daily devotional quotes.
+	•	Legends and histories of sites before visiting.
+
+8. Premium Concierge Service
+	•	On-call help during trip.
+	•	Human-assisted bookings.
+
+9. AR Pilgrimage Guides
+	•	ARKit-powered temple navigation.
+
+10. Souvenir & Donation Integration
+	•	Order prasad or make donations in-app.
+
+5. UI/UX Requirements
+
+Style Guide
+	•	Theme: Minimalist + cultural heritage (warm earthy colors, saffron, deep blue).
+	•	Typography: Clean sans-serif with Indic script support.
+	•	Iconography: SF Symbols + custom holy site icons.
+	•	Illustrations: Indian spiritual motifs.
+
+Core Screens
+	•	Onboarding
+	•	Full-screen spiritual imagery (e.g., Golden Temple sunrise, Rameshwaram shore temple, Kedarnath in snow).
+	•	Tagline: “Your Sacred Journey, Perfectly Planned.”
+	•	Language selection screen (with flag and script preview).
+	•	Home
+	•	Hero banner with seasonal holy site images.
+	•	“Plan My Trip” primary CTA button.
+	•	Trip Input Form
+	•	Budget, dates, preferences.
+	•	Route Map Screen
+	•	Google Maps embedded view with pins.
+	•	Itinerary View
+	•	Card-based layout.
+	•	Weather advisability badge (green/yellow/red).
+	•	Destination Details
+	•	Image carousel.
+	•	Quick facts + best visiting months.
+	•	Budget Adjuster
+	•	Slider UI.
+	•	Profile & Saved Trips
+	•	User’s stored itineraries and preferences.
+
+6. Technical Requirements
+	•	Platform: iOS 17+, SwiftUI.
+	•	APIs:
+	•	Google Maps Directions API.
+	•	Google Places API.
+	•	OpenWeatherMap / IMD for weather.
+	•	IRCTC/RedBus/MakeMyTrip APIs.
+	•	OYO/Booking.com APIs.
+	•	Database: Firebase Firestore.
+	•	Offline Support: MapKit/Google Maps offline + local storage.
+	•	Authentication: Sign in with Apple / Google.
+	•	Push Notifications: Firebase Cloud Messaging.
+	•	Localization: Native iOS localization + translation files for 22 languages.
+
+7. Monetization Strategy
+	•	Free Tier: Core planning features with ads.
+	•	Premium Tier: ₹199/month for ad-free, offline, AI-powered weather advisories, advanced customizations.
+
+8. Risks & Mitigation
+Risk
+Mitigation
+API cost escalation
+Cache routes & data locally
+Poor data accuracy
+Verify holy site info from multiple sources
+Internet dependency
+Offline mode
+Translation issues
+Professional + community translations
+Weather misprediction
+Use multiple weather APIs + trend analysis
+
+9. Success Metrics
+	•	Avg. trips planned/user/month.
+	•	Retention rate (30 days).
+	•	Free-to-premium conversion.
+	•	User satisfaction on weather advisories.
+
+10. Roadmap
+
+Phase 1: Core trip planner, Google Maps route, budget breakdown.
+Phase 2: AI weather advisories, offline mode, full language support.
+
+
+Mock up image 
+
+
+Step-step execution plan 
+Here’s a 90-day execution roadmap to take your SacredPath India app from idea to MVP launch.
+It’s structured in 4 phases so you can track progress and ensure dependencies are handled in the right order.
+
+Phase 1: Foundation & Planning (Days 1–15)
+
+Goal: Get your technical, design, and content groundwork ready.
+	•	Finalize PRD & UI Designs
+	•	Lock in the features for MVP.
+	•	Confirm multilingual requirements.
+	•	Approve mockups for landing page, itinerary screens, and booking flows.
+	•	Team Setup
+	•	iOS developer (SwiftUI or UIKit).
+	•	Backend/API developer (Node.js, Python, or Firebase).
+	•	UI/UX designer.
+	•	Content curator for temple/festival data.
+	•	Project manager or yourself.
+	•	Select Tech Stack
+	•	Confirm frontend, backend, database, APIs.
+	•	Sign up for necessary developer accounts:
+	•	Apple Developer Program (₹8,000/year).
+	•	Google Maps API.
+	•	OpenWeatherMap API.
+	•	Travel/Hotel APIs (Booking.com, IRCTC).
+	•	Content Gathering
+	•	Compile top 50–100 holy sites in India.
+	•	Gather GPS coordinates, timings, entry fees, best visiting months.
+
+Phase 2: Core Development (Days 16–45)
+
+Goal: Build the main functionality of the MVP.
+	•	Backend Setup
+	•	Deploy backend server (AWS/GCP/Azure or Firebase).
+	•	Set up database schema for:
+	•	Users
+	•	Itineraries
+	•	Locations & routes
+	•	Budget preferences
+	•	API Integrations
+	•	Google Maps SDK & Directions API for shortest path.
+	•	OpenWeatherMap for live weather data.
+	•	Travel APIs for hotel/transport pricing.
+	•	AI Modules
+	•	Budget Planner AI: Suggests travel + stay + food within budget.
+	•	Go/No-Go AI: Weather + crowd density + event impact scoring.
+	•	iOS App Core
+	•	Landing page with search + budget input.
+	•	Map route view.
+	•	Itinerary detail screen.
+	•	Multilingual UI support.
+
+Phase 3: Advanced Features & Testing (Days 46–75)
+
+Goal: Add enhancements and ensure app stability.
+	•	Multilingual Expansion
+	•	Add Hindi, Tamil, Bengali, Gujarati, Marathi, Telugu, Kannada, Malayalam, Punjabi.
+	•	Use .strings localization files.
+	•	Push Notifications
+	•	Trip reminders.
+	•	Weather warnings.
+	•	Festival updates.
+	•	Offline Mode
+	•	Cache maps and itinerary for poor network zones.
+	•	Testing
+	•	Unit testing with XCTest.
+	•	UI testing for flow stability.
+	•	Internal QA.
+
+Phase 4: Launch Preparation & Marketing (Days 76–90)
+
+Goal: Get ready for public release.
+	•	Beta Testing
+	•	Use TestFlight for 20–50 early users.
+	•	Collect bug reports & usability feedback.
+	•	App Store Preparation
+	•	Write optimized title & description.
+	•	Prepare screenshots, preview video, and keywords.
+	•	Add privacy policy & terms of service.
+	•	Marketing
+	•	Social media teaser campaign.
+	•	Collaborate with travel vloggers & pilgrimage bloggers.
+	•	Partner with temple boards for promotion.
+	•	Go Live
+	•	Submit to App Store.
+	•	Monitor analytics & crash reports for first 2 weeks.
+	•	Plan post-launch updates.
+
+📌 Key Tip:
+Don’t try to perfect every feature in MVP — focus on shortest path routing, budget planning, weather-based go/no-go advice, and clean UI.
+You can roll out group planning, AR guides, and concierge later.
+
+
