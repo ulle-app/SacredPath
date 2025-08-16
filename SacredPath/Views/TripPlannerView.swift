@@ -64,8 +64,8 @@ struct TripPlannerView: View {
             } message: {
                 Text(viewModel.errorMessage ?? "")
             }
-            .onChange(of: viewModel.currentTrip) { trip in
-                if trip != nil {
+            .onChange(of: viewModel.currentTrip) { _, newTrip in
+                if newTrip != nil {
                     showingItinerary = true
                 }
             }
@@ -233,7 +233,7 @@ struct TripPlannerView: View {
     
     private func useCurrentLocation() {
         locationService.getCurrentLocation { location in
-            if let location = location {
+            if location != nil {
                 DispatchQueue.main.async {
                     viewModel.startLocationText = "Current Location"
                 }

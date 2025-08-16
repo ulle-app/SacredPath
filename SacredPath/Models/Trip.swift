@@ -1,7 +1,13 @@
 import Foundation
 import CoreLocation
 
-struct Trip: Identifiable, Codable {
+extension CLLocationCoordinate2D: @retroactive Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
+struct Trip: Identifiable, Codable, Equatable {
     let id = UUID()
     var name: String
     var budget: Double
@@ -51,7 +57,7 @@ struct Trip: Identifiable, Codable {
     }
 }
 
-struct Location: Identifiable, Codable {
+struct Location: Identifiable, Codable, Equatable {
     let id = UUID()
     var name: String
     var coordinate: CLLocationCoordinate2D
@@ -85,7 +91,7 @@ struct Location: Identifiable, Codable {
     }
 }
 
-struct Destination: Identifiable, Codable {
+struct Destination: Identifiable, Codable, Equatable {
     let id = UUID()
     var location: Location
     var holysite: HolySite?

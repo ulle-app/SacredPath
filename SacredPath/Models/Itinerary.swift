@@ -1,6 +1,6 @@
 import Foundation
 
-struct Itinerary: Identifiable, Codable {
+struct Itinerary: Identifiable, Codable, Equatable {
     let id = UUID()
     var tripId: UUID
     var days: [DayPlan]
@@ -14,7 +14,7 @@ struct Itinerary: Identifiable, Codable {
     }
 }
 
-struct DayPlan: Identifiable, Codable {
+struct DayPlan: Identifiable, Codable, Equatable {
     let id = UUID()
     var dayNumber: Int
     var date: Date
@@ -30,7 +30,7 @@ struct DayPlan: Identifiable, Codable {
     }
 }
 
-struct Activity: Identifiable, Codable {
+struct Activity: Identifiable, Codable, Equatable {
     let id = UUID()
     var type: ActivityType
     var title: String
@@ -76,7 +76,7 @@ struct Activity: Identifiable, Codable {
     }
 }
 
-struct Accommodation: Identifiable, Codable {
+struct Accommodation: Identifiable, Codable, Equatable {
     let id = UUID()
     var name: String
     var type: Trip.AccommodationType
@@ -90,7 +90,7 @@ struct Accommodation: Identifiable, Codable {
     var checkOutTime: String
 }
 
-struct Meal: Identifiable, Codable {
+struct Meal: Identifiable, Codable, Equatable {
     let id = UUID()
     var type: MealType
     var restaurantName: String?
@@ -126,7 +126,7 @@ struct Meal: Identifiable, Codable {
     }
 }
 
-struct Transportation: Identifiable, Codable {
+struct Transportation: Identifiable, Codable, Equatable {
     let id = UUID()
     var mode: Trip.TravelMode
     var from: Location
@@ -146,7 +146,7 @@ struct Transportation: Identifiable, Codable {
     var distance: Double? // in kilometers
 }
 
-struct CostBreakdown: Codable {
+struct CostBreakdown: Codable, Equatable {
     var travel: Double
     var accommodation: Double
     var food: Double
@@ -178,7 +178,7 @@ struct CostBreakdown: Codable {
     }
 }
 
-struct RouteInfo: Codable {
+struct RouteInfo: Codable, Equatable {
     var waypoints: [Location]
     var totalDistance: Double // in kilometers
     var estimatedDuration: TimeInterval // in seconds
@@ -186,7 +186,7 @@ struct RouteInfo: Codable {
     var alternativeRoutes: [AlternativeRoute]?
 }
 
-struct AlternativeRoute: Identifiable, Codable {
+struct AlternativeRoute: Identifiable, Codable, Equatable {
     let id = UUID()
     var name: String
     var distance: Double

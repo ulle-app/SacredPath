@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-struct HolySite: Identifiable, Codable {
+struct HolySite: Identifiable, Codable, Equatable {
     let id = UUID()
     var name: String
     var description: String
@@ -53,7 +53,7 @@ struct HolySite: Identifiable, Codable {
     }
 }
 
-struct DayTiming: Identifiable, Codable {
+struct DayTiming: Identifiable, Codable, Equatable {
     let id = UUID()
     var day: String // e.g., "Monday", "Tuesday", "Daily"
     var openTime: String // e.g., "5:00 AM"
@@ -68,7 +68,7 @@ struct DayTiming: Identifiable, Codable {
     }
 }
 
-struct ContactInfo: Codable {
+struct ContactInfo: Codable, Equatable {
     var phoneNumber: String?
     var email: String?
     var website: String?
