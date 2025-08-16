@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct SacredPathApp: App {
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @AppStorage("selectedLanguage") private var selectedLanguage = "en"
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,7 +28,13 @@ struct SacredPathApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasCompletedOnboarding {
+                MainTabView()
+                    .environmentObject(TripPlannerViewModel())
+                    .environmentObject(LocationService.shared)
+            } else {
+                OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
+            }
         }
         .modelContainer(sharedModelContainer)
     }
